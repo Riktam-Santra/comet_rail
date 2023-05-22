@@ -1,26 +1,24 @@
 import 'dart:math';
 
-import 'package:comet_rail/screens/home_screen/widgets/character_card.dart';
+import 'package:comet_rail/screens/home_screen/widgets/relic_card.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/providers/characters_future_provider.dart';
+import 'package:comet_rail/services/providers/relics_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CharacterCardHandler extends ConsumerWidget {
-  const CharacterCardHandler({super.key, this.index});
+class RelicCardHandler extends ConsumerWidget {
+  const RelicCardHandler({super.key, this.index});
   final int? index;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(charactersFutureProvider).when(
+    return ref.watch(relicsDataProvider).when(
           data: (data) {
             final random = Random();
-            final character = data.characters.values
+            final relicData = data.values
                 .where((element) => element.name != "")
-                .toList()[random.nextInt(data.characters.values.length - 1)];
-            return CharacterCard(
-              character: character,
-              index: index ?? 0,
-            );
+                .toList()[random.nextInt(data.values.length - 1)];
+            return RelicCard(index: index ?? 0, relicData: relicData);
           },
           error: (error, stackTrace) =>
               HttpCallErrorHandler(provider: charactersFutureProvider),

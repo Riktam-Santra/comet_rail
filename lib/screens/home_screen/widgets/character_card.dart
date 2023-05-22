@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/character_details_screen/character_details_screen.dart';
 import 'package:comet_rail/screens/widgets/element_icon.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
 import 'package:comet_rail/services/models/characters.dart';
 import 'package:comet_rail/services/providers/characters_desc_provider.dart';
@@ -116,7 +117,9 @@ class CharacterCard extends ConsumerWidget {
                                               .bodyMedium,
                                         ),
                                         error: (error, stackTrace) =>
-                                            Container(),
+                                            HttpCallErrorHandler(
+                                          provider: characterDescProvider,
+                                        ),
                                         loading: () => Container(),
                                       );
                                 },

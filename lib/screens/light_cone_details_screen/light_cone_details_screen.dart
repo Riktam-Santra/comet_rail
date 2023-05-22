@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:comet_rail/screens/light_cone_details_screen/widgets/stat_card.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/models/light_cone.dart';
+import 'package:comet_rail/services/providers/light_cone_rank_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -71,21 +74,57 @@ class LigthConeDetailsScreen extends ConsumerWidget {
                 builder: (context, ref, child) {
                   return ref.watch(lightConeDescProvider).when(
                         data: (data) => Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.only(
+                              top: 16.0, left: 16.0, right: 16.0),
                           child: Text(
                             data[lightConeData.name] ?? '',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ),
-                        error: (error, stackTrace) => const Center(
-                          child: Text("Something went wrong"),
-                        ),
+                        error: (error, stackTrace) => HttpCallErrorHandler(
+                            provider: lightConeDescProvider),
                         loading: () => const Center(
                           child: CircularProgressIndicator(),
                         ),
                       );
                 },
               ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Consumer(
+                      builder: (context, ref, child) {
+                        return ref.watch(lightConeRankDataProvider).when(
+                              data: (data) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    data[lightConeData.id]?.skill ?? '',
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    Utils.parseStatInLightConeDesc(
+                                      data[lightConeData.id]?.desc ?? '',
+                                      data[lightConeData.id]?.params ?? [],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              error: (error, stackTrace) =>
+                                  HttpCallErrorHandler(
+                                      provider: lightConeRankDataProvider),
+                              loading: () => const CircularProgressIndicator(),
+                            );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              StatCard(id: lightConeData.id)
             ],
           ),
         ),

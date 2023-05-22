@@ -1,9 +1,14 @@
 import 'package:comet_rail/screens/all_characters_screen/all_characters_screen.dart';
+import 'package:comet_rail/screens/all_items_screen/all_items_screen.dart';
+import 'package:comet_rail/screens/all_light_cones_screen/all_light_cones_screen.dart';
+import 'package:comet_rail/screens/all_relics_screen/all_relics_screen.dart';
 import 'package:comet_rail/screens/home_screen/widgets/character_card_handler.dart';
-import 'package:comet_rail/screens/home_screen/widgets/items_list.dart';
+import 'package:comet_rail/screens/home_screen/widgets/items_list/items_list.dart';
 import 'package:comet_rail/screens/home_screen/widgets/light_cone_card_handler.dart';
-import 'package:comet_rail/screens/home_screen/widgets/relic_card.dart';
+import 'package:comet_rail/screens/home_screen/widgets/relic_card_handler.dart';
+import 'package:comet_rail/services/providers/dark_mode_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
   final logoGradient = const LinearGradient(
@@ -22,7 +27,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 20),
               child: ShaderMask(
                 blendMode: BlendMode.srcIn,
                 shaderCallback: (bounds) => logoGradient.createShader(
@@ -78,7 +83,14 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Center(
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AllLightConesScreen(),
+                      ),
+                    );
+                  },
                   child: const Text("View All Light Cones"),
                 ),
               ),
@@ -91,14 +103,21 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: ItemsList(),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Center(
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AllItemsScreen(),
+                      ),
+                    );
+                  },
                   child: const Text("View All Items"),
                 ),
               ),
@@ -112,13 +131,20 @@ class HomeScreen extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: RelicCard(),
+              child: RelicCardHandler(),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Center(
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AllRelicsScreen(),
+                      ),
+                    );
+                  },
                   child: const Text("View All Relics"),
                 ),
               ),

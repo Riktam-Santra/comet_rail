@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/models/character_skills.dart';
 import 'package:comet_rail/services/providers/character_skills_data_provider.dart';
 import 'package:comet_rail/utils.dart';
@@ -80,7 +81,7 @@ class SkillsCard extends ConsumerWidget {
                                                             skill.type)),
                                                   ),
                                             Text(
-                                              Utils.parseStatInDesc(
+                                              Utils.parseStatInLightConeDesc(
                                                   skill.desc.replaceAll(
                                                       RegExp(r'\\n'), ""),
                                                   skill.params),
@@ -101,9 +102,8 @@ class SkillsCard extends ConsumerWidget {
             );
           },
           error: (error, stackTrace) {
-            log("Error loading skills", error: error);
-            return const Center(
-              child: Text("Something went wrong"),
+            return HttpCallErrorHandler(
+              provider: characterSkillsDataProvider,
             );
           },
           loading: () => const CircularProgressIndicator(),

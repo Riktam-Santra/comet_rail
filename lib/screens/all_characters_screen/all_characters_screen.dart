@@ -1,4 +1,5 @@
 import 'package:comet_rail/screens/home_screen/widgets/character_card.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/providers/characters_future_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -28,9 +29,8 @@ class AllCharactersScreen extends ConsumerWidget {
                 ),
               );
             },
-            error: (error, stackTrace) => const Center(
-              child: Text("Something went wrong"),
-            ),
+            error: (error, stackTrace) =>
+                HttpCallErrorHandler(provider: charactersFutureProvider),
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),

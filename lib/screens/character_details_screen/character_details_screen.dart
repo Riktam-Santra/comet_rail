@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/character_details_screen/widgets/path_card.dart';
 import 'package:comet_rail/screens/character_details_screen/widgets/skills_card.dart';
 import 'package:comet_rail/screens/character_details_screen/widgets/stat_card.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -110,7 +111,9 @@ class CharacterDetailsScreen extends ConsumerWidget {
                                                 .textTheme
                                                 .bodyMedium),
                                         error: (error, stackTrace) =>
-                                            Container(),
+                                            HttpCallErrorHandler(
+                                                provider:
+                                                    characterDescProvider),
                                         loading: () => Container(),
                                       );
                                 },

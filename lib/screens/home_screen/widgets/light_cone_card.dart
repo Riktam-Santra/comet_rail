@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/light_cone_details_screen/light_cone_details_screen.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
 import 'package:comet_rail/services/models/light_cone.dart';
 import 'package:comet_rail/services/providers/light_cone_desc_provider.dart';
@@ -82,9 +83,9 @@ class LightConeCard extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
-                              error: (error, stackTrace) => const Center(
-                                child: Text("Something went wrong"),
-                              ),
+                              error: (error, stackTrace) =>
+                                  HttpCallErrorHandler(
+                                      provider: lightConeDescProvider),
                               loading: () => const Center(
                                 child: CircularProgressIndicator(),
                               ),

@@ -1,18 +1,18 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'character_promotions.g.dart';
+part 'promotions.g.dart';
 
 @JsonSerializable()
-class CharacterPromotion {
+class Promotion {
   final String id;
   final List<Value> values;
   final List<List<Material>> materials;
 
-  CharacterPromotion(this.id, this.values, this.materials);
+  Promotion(this.id, this.values, this.materials);
 
-  factory CharacterPromotion.fromJson(Map<String, dynamic> json) =>
-      _$CharacterPromotionFromJson(json);
+  factory Promotion.fromJson(Map<String, dynamic> json) =>
+      _$PromotionFromJson(json);
 
-  toJson() => _$CharacterPromotionToJson(this);
+  toJson() => _$PromotionToJson(this);
 }
 
 @JsonSerializable()
@@ -20,12 +20,12 @@ class Value {
   final Stat hp;
   final Stat atk;
   final Stat def;
-  final Stat spd;
-  final Stat taunt;
+  final Stat? spd;
+  final Stat? taunt;
   @JsonKey(name: "crit_rate")
-  final Stat critRate;
+  final Stat? critRate;
   @JsonKey(name: "crit_dmg")
-  final Stat critDmg;
+  final Stat? critDmg;
 
   Value(this.hp, this.atk, this.def, this.spd, this.taunt, this.critRate,
       this.critDmg);

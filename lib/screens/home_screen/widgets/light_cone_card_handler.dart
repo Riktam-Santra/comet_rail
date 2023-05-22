@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:comet_rail/screens/home_screen/widgets/light_cone_card.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/providers/light_cone_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -24,7 +25,8 @@ class LightConeCardHandler extends ConsumerWidget {
               index: 0,
             );
           },
-          error: (error, stackTrace) => const Text("Something Went Wrong"),
+          error: (error, stackTrace) =>
+              HttpCallErrorHandler(provider: lightConeDataProvider),
           loading: () => const Center(child: CircularProgressIndicator()),
         );
   }

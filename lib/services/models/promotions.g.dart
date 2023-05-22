@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'character_promotions.dart';
+part of 'promotions.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CharacterPromotion _$CharacterPromotionFromJson(Map<String, dynamic> json) =>
-    CharacterPromotion(
+Promotion _$PromotionFromJson(Map<String, dynamic> json) => Promotion(
       json['id'] as String,
       (json['values'] as List<dynamic>)
           .map((e) => Value.fromJson(e as Map<String, dynamic>))
@@ -19,8 +18,7 @@ CharacterPromotion _$CharacterPromotionFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$CharacterPromotionToJson(CharacterPromotion instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PromotionToJson(Promotion instance) => <String, dynamic>{
       'id': instance.id,
       'values': instance.values,
       'materials': instance.materials,
@@ -30,10 +28,18 @@ Value _$ValueFromJson(Map<String, dynamic> json) => Value(
       Stat.fromJson(json['hp'] as Map<String, dynamic>),
       Stat.fromJson(json['atk'] as Map<String, dynamic>),
       Stat.fromJson(json['def'] as Map<String, dynamic>),
-      Stat.fromJson(json['spd'] as Map<String, dynamic>),
-      Stat.fromJson(json['taunt'] as Map<String, dynamic>),
-      Stat.fromJson(json['crit_rate'] as Map<String, dynamic>),
-      Stat.fromJson(json['crit_dmg'] as Map<String, dynamic>),
+      json['spd'] == null
+          ? null
+          : Stat.fromJson(json['spd'] as Map<String, dynamic>),
+      json['taunt'] == null
+          ? null
+          : Stat.fromJson(json['taunt'] as Map<String, dynamic>),
+      json['crit_rate'] == null
+          ? null
+          : Stat.fromJson(json['crit_rate'] as Map<String, dynamic>),
+      json['crit_dmg'] == null
+          ? null
+          : Stat.fromJson(json['crit_dmg'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ValueToJson(Value instance) => <String, dynamic>{

@@ -20,8 +20,9 @@ abstract class Utils {
     }
   }
 
-  static String parseStatInDesc(String data, List<List<double>> params) {
-    data.replaceAll(RegExp(r'\\n'), "");
+  static String parseStatInLightConeDesc(
+      String data, List<List<double>> params) {
+    data.replaceAll(RegExp(r'\\n'), "\n");
     if (data.contains(RegExp(r'#[0-9]+\[i\]'))) {
       List<String> dataVec = data.split(" ");
       int index = 0;
@@ -36,6 +37,32 @@ abstract class Utils {
             final wordVec = word.split("[i]");
             final skillIndex = int.parse(wordVec[0].replaceAll("#", ""));
             dataVec[index] = (params[0][skillIndex - 1]).toInt().toString();
+          }
+        }
+        index++;
+      }
+
+      return dataVec.join(" ");
+    }
+    return data;
+  }
+
+  static String parseStatInDesc(String data, List<double> params) {
+    data.replaceAll(RegExp(r'\\n'), "\n");
+    if (data.contains(RegExp(r'#[0-9]+\[i\]'))) {
+      List<String> dataVec = data.split(" ");
+      int index = 0;
+      for (final word in dataVec) {
+        if (word.contains(RegExp(r'#[0-9]+\[i\]'))) {
+          if (word.contains("%")) {
+            final wordVec = word.split("[i]");
+            final skillIndex = int.parse(wordVec[0].replaceAll("#", ""));
+            dataVec[index] =
+                "${(params[skillIndex - 1] * 100).toInt().toString()}%";
+          } else {
+            final wordVec = word.split("[i]");
+            final skillIndex = int.parse(wordVec[0].replaceAll("#", ""));
+            dataVec[index] = (params[skillIndex - 1]).toInt().toString();
           }
         }
         index++;

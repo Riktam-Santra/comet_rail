@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/providers/paths_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -45,9 +46,8 @@ class PathCard extends ConsumerWidget {
               ),
             );
           },
-          error: (error, stackTrace) => const Center(
-            child: Text("Error loading data"),
-          ),
+          error: (error, stackTrace) =>
+              HttpCallErrorHandler(provider: pathsDataProvider),
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),

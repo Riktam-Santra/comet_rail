@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
-import 'package:comet_rail/services/providers/character_promotions_provider.dart';
+import 'package:comet_rail/services/providers/light_cone_promotions_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,9 +10,9 @@ class StatCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(characterPromotionsProvider).when(
+    return ref.watch(lightConePromotionProvider).when(
           data: (data) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -72,36 +72,6 @@ class StatCard extends ConsumerWidget {
                             Text("${data[id]!.values[0].def.base.round()}")
                           ],
                         ),
-                        Column(
-                          children: [
-                            const Tooltip(
-                              message: "SPD",
-                              child: ImageIcon(
-                                CachedNetworkImageProvider(
-                                    "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"),
-                                size: 40,
-                              ),
-                            ),
-                            Text(
-                                "${data[id]!.values[0].spd?.base.round() ?? 0}")
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            const Tooltip(
-                              message: "Taunt",
-                              child: Padding(
-                                padding: EdgeInsets.all(5.0),
-                                child: ImageIcon(
-                                  AssetImage("assets/taunt.png"),
-                                  size: 30,
-                                ),
-                              ),
-                            ),
-                            Text(
-                                "${data[id]!.values[0].taunt?.base.round() ?? 0}")
-                          ],
-                        ),
                       ],
                     ),
                   ],
@@ -109,8 +79,9 @@ class StatCard extends ConsumerWidget {
               ),
             ),
           ),
-          error: (error, stackTrace) =>
-              HttpCallErrorHandler(provider: characterPromotionsProvider),
+          error: (error, stackTrace) => HttpCallErrorHandler(
+            provider: lightConePromotionProvider,
+          ),
           loading: () => const Padding(
             padding: EdgeInsets.all(10),
             child: CircularProgressIndicator(),
