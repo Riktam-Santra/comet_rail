@@ -6,9 +6,7 @@ import 'package:comet_rail/screens/home_screen/widgets/character_card_handler.da
 import 'package:comet_rail/screens/home_screen/widgets/items_list/items_list.dart';
 import 'package:comet_rail/screens/home_screen/widgets/light_cone_card_handler.dart';
 import 'package:comet_rail/screens/home_screen/widgets/relic_card_handler.dart';
-import 'package:comet_rail/services/providers/dark_mode_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
   final logoGradient = const LinearGradient(
