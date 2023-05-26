@@ -46,7 +46,7 @@ class RelicDetailScreen extends ConsumerWidget {
                                 style:
                                     Theme.of(context).textTheme.headlineLarge,
                               ),
-                              Divider(),
+                              const Divider(),
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16.0),
@@ -127,7 +127,7 @@ class RelicDetailScreen extends ConsumerWidget {
                                     error: (error, stackTrace) =>
                                         HttpCallErrorHandler(
                                             provider: relicsDataProvider),
-                                    loading: () => Center(
+                                    loading: () => const Center(
                                       child: CircularProgressIndicator(),
                                     ),
                                   ),
@@ -138,7 +138,7 @@ class RelicDetailScreen extends ConsumerWidget {
               },
               error: (error, stackTrace) =>
                   HttpCallErrorHandler(provider: relicDescProvider),
-              loading: () => Center(
+              loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
             ),

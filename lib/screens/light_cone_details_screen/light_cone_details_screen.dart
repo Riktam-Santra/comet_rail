@@ -61,9 +61,7 @@ class LigthConeDetailsScreen extends ConsumerWidget {
                               ),
                             ],
                           ),
-                          Row(
-                            children: rarityIndicator(lightConeData.rarity),
-                          ),
+                          RarityIndicator(rarity: lightConeData.rarity),
                         ],
                       ),
                     )
