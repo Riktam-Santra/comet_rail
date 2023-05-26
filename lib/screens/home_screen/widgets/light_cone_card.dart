@@ -64,9 +64,7 @@ class LightConeCard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Row(
-                              children: rarityIndicator(lightConeData.rarity),
-                            ),
+                            RarityIndicator(rarity: lightConeData.rarity),
                           ],
                         ),
                       )

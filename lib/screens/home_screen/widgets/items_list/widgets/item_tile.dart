@@ -27,10 +27,8 @@ class ItemTile extends ConsumerWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            trailing: Icon(Icons.arrow_forward_ios),
-            subtitle: Row(
-              children: rarityIndicator(itemData.rarity),
-            ),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            subtitle: RarityIndicator(rarity: itemData.rarity),
             onTap: () {
               showModalBottomSheet(
                 context: context,
@@ -40,7 +38,7 @@ class ItemTile extends ConsumerWidget {
           ),
           error: (error, stackTrace) =>
               HttpCallErrorHandler(provider: itemDescProvider),
-          loading: () => Center(
+          loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
         );

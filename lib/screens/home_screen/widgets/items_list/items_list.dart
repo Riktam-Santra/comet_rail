@@ -31,7 +31,6 @@ class ItemsList extends ConsumerWidget {
                 widgetList.add(const Divider());
               }
             }
-            ;
             return Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

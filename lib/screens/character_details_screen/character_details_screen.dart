@@ -77,11 +77,7 @@ class CharacterDetailsScreen extends ConsumerWidget {
                             )
                           ],
                         ),
-                        Row(
-                          children: [
-                            ...rarityIndicator(character.rarity),
-                          ],
-                        ),
+                        RarityIndicator(rarity: character.rarity),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 5),
                           child: Row(
