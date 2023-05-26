@@ -60,10 +60,8 @@ class _ItemDetailsModalState extends State<ItemDetailsModal>
                                             .textTheme
                                             .titleLarge,
                                       ),
-                                      Row(
-                                        children: rarityIndicator(
-                                            widget.itemData.rarity),
-                                      ),
+                                      RarityIndicator(
+                                          rarity: widget.itemData.rarity),
                                     ],
                                   ),
                                 ),
