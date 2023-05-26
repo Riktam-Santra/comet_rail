@@ -28,7 +28,7 @@ class AllItemsScreen extends ConsumerWidget {
             },
             error: (error, stacktrace) =>
                 HttpCallErrorHandler(provider: itemDataProvider),
-            loading: () => Center(child: CircularProgressIndicator()),
+            loading: () => const Center(child: CircularProgressIndicator()),
           ),
     );
   }

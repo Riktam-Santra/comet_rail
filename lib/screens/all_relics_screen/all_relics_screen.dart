@@ -34,12 +34,12 @@ class AllRelicsScreen extends ConsumerWidget {
                     },
                     error: (error, stackTrace) =>
                         HttpCallErrorHandler(provider: relicDescProvider),
-                    loading: () => CircularProgressIndicator(),
+                    loading: () => const CircularProgressIndicator(),
                   );
             },
             error: (error, stackTrace) =>
                 HttpCallErrorHandler(provider: relicDescProvider),
-            loading: () => CircularProgressIndicator(),
+            loading: () => const CircularProgressIndicator(),
           ),
     );
   }
