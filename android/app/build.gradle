@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.ricksntra.comet_rail"
+    namespace "com.example.comet_rail"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
