@@ -22,8 +22,7 @@ abstract class Utils {
     }
   }
 
-  static String parseStatInLightConeDesc(
-      String data, List<List<double>> params) {
+  static String parseGeneralStatInDesc(String data, List<List<double>> params) {
     RegExp normalExp = RegExp(r'#[0-9]+\[i\]');
 
     RegExp percentExp = RegExp(r'#[0-9]+\[i\]%');
@@ -92,7 +91,7 @@ abstract class Utils {
     return iterString;
   }
 
-  static String parseStatInDesc(String data, List<double> params) {
+  static String parseRelicStatInDesc(String data, List<double> params) {
     data.replaceAll(RegExp(r'\\n'), "\n");
     if (data.contains(RegExp(r'#[0-9]+\[i\]'))) {
       List<String> dataVec = data.split(" ");
