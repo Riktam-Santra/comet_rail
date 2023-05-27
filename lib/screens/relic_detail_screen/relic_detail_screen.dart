@@ -81,7 +81,7 @@ class RelicDetailScreen extends ConsumerWidget {
                                                       ),
                                                       Expanded(
                                                         child: Text(Utils
-                                                            .parseStatInDesc(
+                                                            .parseRelicStatInDesc(
                                                                 e.desc
                                                                     .replaceAll(
                                                                         "<nobr>",
