@@ -105,7 +105,7 @@ class LigthConeDetailsScreen extends ConsumerWidget {
                                     textAlign: TextAlign.left,
                                   ),
                                   Text(
-                                    Utils.parseStatInLightConeDesc(
+                                    Utils.parseGeneralStatInDesc(
                                       data[lightConeData.id]?.desc ?? '',
                                       data[lightConeData.id]?.params ?? [],
                                     ),
