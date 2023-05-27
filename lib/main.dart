@@ -28,30 +28,31 @@ class MainApp extends ConsumerWidget {
       darkTheme: ThemeData.dark().copyWith(useMaterial3: true),
       themeMode: ref.watch(darkModeProvider) ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              ref.read(darkModeProvider.notifier).toggle();
-            },
-            child: ref.watch(darkModeProvider)
-                ? const Icon(
-                    Icons.light_mode,
-                  )
-                : const Icon(
-                    Icons.dark_mode,
-                  ),
-          ),
-          body: PageView(
-            physics: NeverScrollableScrollPhysics(),
-            controller: _pageController,
-            children: [
-              const HomeScreen(),
-              SearchScreen(),
-              const CharacterBuilderScreen(),
-            ],
-          ),
-          bottomNavigationBar: CustomBottomNavigationBar(
-            controller: _pageController,
-          )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ref.read(darkModeProvider.notifier).toggle();
+          },
+          child: ref.watch(darkModeProvider)
+              ? const Icon(
+                  Icons.light_mode,
+                )
+              : const Icon(
+                  Icons.dark_mode,
+                ),
+        ),
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _pageController,
+          children: [
+            const HomeScreen(),
+            SearchScreen(),
+            const CharacterBuilderScreen(),
+          ],
+        ),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          controller: _pageController,
+        ),
+      ),
     );
   }
 }

@@ -83,7 +83,7 @@ class SkillsCard extends ConsumerWidget {
                                             Text(
                                               Utils.parseStatInLightConeDesc(
                                                   skill.desc.replaceAll(
-                                                      RegExp(r'\\n'), ""),
+                                                      RegExp(r'\\n'), "\n"),
                                                   skill.params),
                                             ),
                                             const Divider(),
