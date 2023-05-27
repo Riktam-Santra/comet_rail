@@ -82,7 +82,7 @@ class CharacterDetailsScreen extends ConsumerWidget {
                           padding: const EdgeInsets.symmetric(vertical: 5),
                           child: Row(
                             children: [
-                              elementIcon(character.element),
+                              ElementIcon(element: character.element),
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 5),
