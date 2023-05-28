@@ -5,10 +5,6 @@ import 'package:comet_rail/screens/home_screen/widgets/items_list/widgets/item_t
 import 'package:comet_rail/screens/home_screen/widgets/light_cone_card.dart';
 import 'package:comet_rail/screens/home_screen/widgets/relic_card.dart';
 import 'package:comet_rail/services/models/characters.dart';
-import 'package:comet_rail/services/providers/characters_future_provider.dart';
-import 'package:comet_rail/services/providers/item_data_provider.dart';
-import 'package:comet_rail/services/providers/light_cone_data_provider.dart';
-import 'package:comet_rail/services/providers/relics_data_provider.dart';
 import 'package:comet_rail/services/providers/search_helper_providers/search_value_state_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +12,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../models/light_cone.dart';
 import '../../models/relic_data.dart';
 import '../../models/res_item.dart';
+import '../character_data_providers/characters_data_provider.dart';
+import '../light_cone_data_providers/light_cone_data_provider.dart';
+import '../item_data_providers/item_data_provider.dart';
+import '../relic_data_providers/relics_data_provider.dart';
 
 final searchResultProvider = FutureProvider<AppSearchResults?>((ref) async {
   final value = ref.watch(searchValueStateProvider);

@@ -2,11 +2,12 @@ import 'package:comet_rail/screens/home_screen/widgets/relic_card.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/models/relic_data.dart';
 import 'package:comet_rail/services/models/relic_desc.dart';
-import 'package:comet_rail/services/providers/relic_desc_provider.dart';
-import 'package:comet_rail/services/providers/relics_data_provider.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../services/providers/relic_data_providers/relic_desc_provider.dart';
+import '../../services/providers/relic_data_providers/relics_data_provider.dart';
 
 class RelicDetailScreen extends ConsumerWidget {
   final RelicData relicData;

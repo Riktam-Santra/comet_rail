@@ -3,10 +3,11 @@ import 'package:comet_rail/screens/light_cone_details_screen/light_cone_details_
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
 import 'package:comet_rail/services/models/light_cone.dart';
-import 'package:comet_rail/services/providers/light_cone_desc_provider.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../services/providers/ight_cone_data_providers/light_cone_desc_provider.dart';
 
 class LightConeCard extends StatelessWidget {
   final LightCone lightConeData;

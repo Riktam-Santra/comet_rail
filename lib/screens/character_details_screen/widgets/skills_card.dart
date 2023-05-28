@@ -3,10 +3,11 @@ import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/models/character_skills.dart';
-import 'package:comet_rail/services/providers/character_skills_data_provider.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../services/providers/character_data_providers/character_skills_data_provider.dart';
 
 class SkillsCard extends ConsumerWidget {
   final List<String> skillIds;
@@ -81,7 +82,7 @@ class SkillsCard extends ConsumerWidget {
                                                             skill.type)),
                                                   ),
                                             Text(
-                                              Utils.parseStatInLightConeDesc(
+                                              Utils.parseGeneralStatInDesc(
                                                   skill.desc.replaceAll(
                                                       RegExp(r'\\n'), "\n"),
                                                   skill.params),

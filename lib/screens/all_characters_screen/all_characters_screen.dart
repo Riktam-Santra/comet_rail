@@ -1,8 +1,9 @@
 import 'package:comet_rail/screens/home_screen/widgets/character_card.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
-import 'package:comet_rail/services/providers/characters_future_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../services/providers/character_data_providers/characters_future_provider.dart';
 
 class AllCharactersScreen extends ConsumerWidget {
   const AllCharactersScreen({super.key});

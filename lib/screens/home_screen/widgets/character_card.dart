@@ -4,10 +4,11 @@ import 'package:comet_rail/screens/widgets/element_icon.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
 import 'package:comet_rail/services/models/characters.dart';
-import 'package:comet_rail/services/providers/characters_desc_provider.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../services/providers/character_data_providers/characters_desc_provider.dart';
 
 class CharacterCard extends ConsumerWidget {
   final Character character;

@@ -2,9 +2,10 @@ import 'dart:math';
 
 import 'package:comet_rail/screens/home_screen/widgets/character_card.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
-import 'package:comet_rail/services/providers/characters_future_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../services/providers/character_data_providers/characters_data_provider.dart';
 
 class CharacterCardHandler extends ConsumerWidget {
   const CharacterCardHandler({super.key, this.index});

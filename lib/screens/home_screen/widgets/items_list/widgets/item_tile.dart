@@ -3,9 +3,10 @@ import 'package:comet_rail/screens/home_screen/widgets/item_details_modal.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
 import 'package:comet_rail/services/models/res_item.dart';
-import 'package:comet_rail/services/providers/item_desc_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../../../services/providers/item_data_providers/item_desc_provider.dart';
 
 class ItemTile extends ConsumerWidget {
   final ResItem itemData;

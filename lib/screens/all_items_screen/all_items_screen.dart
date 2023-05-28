@@ -2,7 +2,7 @@ import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../services/providers/item_data_provider.dart';
+import '../../services/providers/item_data_providers/item_data_provider.dart';
 import '../home_screen/widgets/items_list/widgets/item_tile.dart';
 
 class AllItemsScreen extends ConsumerWidget {
