@@ -20,20 +20,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   late FocusNode searchBarFocusNode;
 
-  _onChangeHandler(value) {
-    const duration = Duration(
-        milliseconds:
-            800); // set the duration that you want call search() after that.
-    if (searchOnStoppedTyping != null) {
-      setState(() => searchOnStoppedTyping!.cancel()); // clear timer
-    }
-    setState(
-      () => searchOnStoppedTyping = Timer(
-        duration,
-        () => ref.read(searchValueStateProvider.notifier).setValue(value),
-      ),
-    );
-  }
+  // _onChangeHandler(value) {
+  //   const duration = Duration(
+  //       milliseconds:
+  //           800); // set the duration that you want call search() after that.
+  //   if (searchOnStoppedTyping != null) {
+  //     setState(() => searchOnStoppedTyping!.cancel()); // clear timer
+  //   }
+  //   setState(
+  //     () => searchOnStoppedTyping = Timer(
+  //       duration,
+  //       () => ref.read(searchValueStateProvider.notifier).setValue(value),
+  //     ),
+  //   );
+  // }
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
                 child: TextField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Search for anything in game...",
                   ),

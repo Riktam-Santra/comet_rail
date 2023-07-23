@@ -61,7 +61,10 @@ class RelicCard extends StatelessWidget {
                               });
                             }
 
-                            return Text(text);
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Text(text),
+                            );
                           },
                           error: (error, stackTrace) =>
                               HttpCallErrorHandler(provider: relicDescProvider),
@@ -70,6 +73,40 @@ class RelicCard extends StatelessWidget {
                           ),
                         );
                   },
+                ),
+                Text(
+                  "Main Stat",
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+                const Row(
+                  children: [
+                    // Chip(
+                    //   label: const Text(
+                    //     "DEF",
+                    //     style: TextStyle(color: Colors.white),
+                    //   ),
+                    //   backgroundColor: Theme.of(context).primaryColor,
+                    // ),
+                    // Text(
+                    //   "DEF",
+                    //   style: TextStyle(color: Colors.black),
+                    // ),
+                    // Expanded(
+                    //   child: TextField(
+                    //     decoration: InputDecoration(
+                    //       hintText: "Enter Stat",
+                    //       hintStyle: TextStyle(
+                    //         color: Colors.grey,
+                    //       ),
+                    //       enabledBorder: UnderlineInputBorder(
+                    //         borderSide: BorderSide(
+                    //           color: Colors.grey,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
                 )
               ],
             ),

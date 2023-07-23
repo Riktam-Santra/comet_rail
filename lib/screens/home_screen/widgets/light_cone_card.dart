@@ -7,7 +7,7 @@ import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../services/providers/ight_cone_data_providers/light_cone_desc_provider.dart';
+import '../../../services/providers/light_cone_data_providers/light_cone_desc_provider.dart';
 
 class LightConeCard extends StatelessWidget {
   final LightCone lightConeData;

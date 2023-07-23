@@ -1,3 +1,4 @@
+import 'package:comet_rail/services/providers/dark_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -44,9 +45,14 @@ class RarityIndicator extends ConsumerWidget {
         return Row(
           children: [
             for (int i = 0; i < 4; i++)
-              ImageIcon(
-                const AssetImage('assets/star.png'),
-                color: Colors.purple[800],
+              Consumer(
+                builder: (_, WidgetRef ref, __) {
+                  final darkmode = ref.watch(darkModeProvider);
+                  return ImageIcon(
+                    const AssetImage('assets/star.png'),
+                    color: darkmode ? Colors.purple : Colors.purple[800],
+                  );
+                },
               )
           ],
         );

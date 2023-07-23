@@ -5,8 +5,8 @@ import 'package:comet_rail/services/models/light_cone.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../services/providers/ight_cone_data_providers/light_cone_desc_provider.dart';
-import '../../services/providers/ight_cone_data_providers/light_cone_rank_data_provider.dart';
+import '../../services/providers/light_cone_data_providers/light_cone_desc_provider.dart';
+import '../../services/providers/light_cone_data_providers/light_cone_rank_data_provider.dart';
 import '../../utils.dart';
 import '../widgets/rarity_indicator.dart';
 

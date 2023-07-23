@@ -1,5 +1,8 @@
 import 'dart:developer';
 
+import 'package:comet_rail/services/models/character_builder_selected_data.dart';
+import 'package:comet_rail/services/models/character_calculated_data_wrapper.dart';
+
 abstract class Utils {
   static String convertPathName(String path) {
     switch (path) {
@@ -138,4 +141,19 @@ abstract class Utils {
         return 'Follow up';
     }
   }
+
+  // static CharacterCalculatedDataWrapper calculateCharacterDmg(
+  //     SelectedData data) {
+  //   List<double> atks = [];
+  //   List<double> hps = [];
+  //   List<double> defs = [];
+  //   List<double> critDmgs = [];
+  //   List<double> critRates = [];
+
+  //   if (data.selectedRelic.first?.statData?.first == null) {
+  //     atks.add(0.0);
+  //   } else {
+  //     if (data.selectedRelic.first!.statData!.first.isPercent) {}
+  //   }
+  // }
 }

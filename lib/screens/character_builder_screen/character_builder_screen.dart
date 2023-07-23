@@ -1,12 +1,11 @@
-import 'dart:math';
-
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:comet_rail/screens/widgets/element_icon.dart';
-import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:comet_rail/screens/character_builder_screen/widgets/planar_selector_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../services/providers/character_data_providers/characters_data_provider.dart';
+import 'widgets/character_selector_card/character_selector_card.dart';
+import 'widgets/light_cone_selector_card.dart';
+import 'widgets/relic_selector_card.dart';
 
 class CharacterBuilderScreen extends ConsumerWidget {
   const CharacterBuilderScreen({super.key});
@@ -24,56 +23,79 @@ class CharacterBuilderScreen extends ConsumerWidget {
                 "Character Builder",
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              Consumer(
-                builder: (_, WidgetRef ref, __) {
-                  return ref.watch(charactersFutureProvider).when(
-                        data: (data) {
-                          final random = Random();
-
-                          final character = (data.characters.values.toList())[
-                              random.nextInt(
-                                  data.characters.values.toList().length - 1)];
-                          return Card(
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                radius: 25,
-                                child: ClipOval(
-                                  child: CachedNetworkImage(
-                                      imageUrl:
-                                          "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/${character.icon}"),
-                                ),
-                              ),
-                              title: Text(
-                                (character.name == "{NICKNAME}"
-                                    ? 'Trailblazer'
-                                    : character.name),
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              subtitle: Column(
-                                children: [
-                                  RarityIndicator(rarity: character.rarity),
-                                  Row(
-                                    children: [
-                                      ElementIcon(element: character.element),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 5.0),
-                                        child: Text(character.element),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                        error: (error, stackTrace) => Container(),
-                        loading: () => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: Text(
+                  "Character",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
               ),
+              const CharacterSelectorCard(),
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: Text(
+                  "Light Cone",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+              const LightConeSelectorCard(),
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: Text(
+                  "Relics",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                    enableInfiniteScroll: false,
+                    aspectRatio: 0.6,
+                    viewportFraction: 0.9),
+                items: const [
+                  RelicSelectorCard(
+                    index: 0,
+                  ),
+                  RelicSelectorCard(
+                    index: 1,
+                  ),
+                  RelicSelectorCard(
+                    index: 2,
+                  ),
+                  RelicSelectorCard(
+                    index: 3,
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: Text(
+                  "Planars",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                    enableInfiniteScroll: false,
+                    aspectRatio: 0.6,
+                    viewportFraction: 0.9),
+                items: const [
+                  PlanarSelectorCard(
+                    index: 0,
+                  ),
+                  PlanarSelectorCard(
+                    index: 1,
+                  ),
+                ],
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: FilledButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.calculate_rounded),
+                      label: const Text("Calculate Damage")),
+                ),
+              )
             ],
           ),
         ),

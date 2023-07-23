@@ -5,7 +5,7 @@ import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../services/providers/ight_cone_data_providers/light_cone_data_provider.dart';
+import '../../../services/providers/light_cone_data_providers/light_cone_data_provider.dart';
 
 class LightConeCardHandler extends ConsumerWidget {
   final int? index;
