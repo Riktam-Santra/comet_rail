@@ -1,18 +1,24 @@
-import 'package:comet_rail/services/models/characters.dart';
-import 'package:comet_rail/services/models/light_cone.dart';
+import 'package:comet_rail/services/models/json_models/characters.dart';
+import 'package:comet_rail/services/models/json_models/light_cone.dart';
+import 'package:comet_rail/services/models/json_models/promotions.dart';
 import 'package:comet_rail/services/models/selected_planar_data.dart';
 import 'package:comet_rail/services/models/selected_relic_data.dart';
 
 class SelectedData {
   final Character? character;
+  final Promotion? characterPromotionData;
+  final Promotion? lightConePromotionData;
   final LightCone? lightCone;
   final SelectedRelicDataWrapper selectedRelic;
   final SelectedPlanerDataWrapper selectedPlanar;
-  SelectedData(
-      {required this.character,
-      required this.lightCone,
-      required this.selectedRelic,
-      required this.selectedPlanar});
+  SelectedData({
+    required this.character,
+    required this.lightCone,
+    required this.selectedRelic,
+    required this.selectedPlanar,
+    required this.characterPromotionData,
+    required this.lightConePromotionData,
+  });
 }
 
 class SelectedRelicDataWrapper {

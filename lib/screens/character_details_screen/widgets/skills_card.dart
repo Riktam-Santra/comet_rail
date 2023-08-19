@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
-import 'package:comet_rail/services/models/character_skills.dart';
+import 'package:comet_rail/services/models/json_models/character_skills.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

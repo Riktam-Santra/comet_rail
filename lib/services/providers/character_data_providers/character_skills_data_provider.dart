@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:comet_rail/services/models/character_skills.dart';
+import 'package:comet_rail/services/models/json_models/character_skills.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart';
 

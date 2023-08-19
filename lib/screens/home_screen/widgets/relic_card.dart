@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/relic_detail_screen/relic_detail_screen.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
-import 'package:comet_rail/services/models/relic_data.dart';
+import 'package:comet_rail/services/models/json_models/relic_data.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

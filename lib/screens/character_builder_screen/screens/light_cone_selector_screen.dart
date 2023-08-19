@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/services/providers/light_cone_data_providers/light_cone_data_provider.dart';
+import 'package:comet_rail/services/providers/light_cone_data_providers/light_cone_promotions_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -57,9 +58,33 @@ class LightConeSelectorScreen extends ConsumerWidget {
                       ),
                     ),
                     onTap: () {
-                      ref
-                          .read(characterBuilderSelectedDataProvider.notifier)
-                          .setLightCone(data.values.toList()[index]);
+                      ref.watch(lightConePromotionProvider).when(
+                          data: (promotionData) {
+                        ref
+                            .read(characterBuilderSelectedDataProvider.notifier)
+                            .setLightCone(
+                                data.values.toList()[index],
+                                promotionData.values
+                                    .where((promotion) =>
+                                        promotion.id ==
+                                        (data.values.toList()[index]).id)
+                                    .first);
+                      }, error: (error, stackTrace) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                                "Unable to get stat related data, please try again"),
+                          ),
+                        );
+                      }, loading: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                                "Stats related data is still loading, please wait..."),
+                          ),
+                        );
+                      });
+
                       Navigator.pop(context);
                     },
                   ),

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:comet_rail/services/models/light_cone_rank.dart';
+import 'package:comet_rail/services/models/json_models/light_cone_rank.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart';
 

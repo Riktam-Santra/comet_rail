@@ -3,7 +3,7 @@ import 'package:comet_rail/screens/character_details_screen/character_details_sc
 import 'package:comet_rail/screens/widgets/element_icon.dart';
 import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:comet_rail/screens/widgets/rarity_indicator.dart';
-import 'package:comet_rail/services/models/characters.dart';
+import 'package:comet_rail/services/models/json_models/characters.dart';
 import 'package:comet_rail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:comet_rail/services/enums/lang.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/characters.dart';
+import '../models/json_models/characters.dart';
 
 abstract class Api {
   static const String _authority =

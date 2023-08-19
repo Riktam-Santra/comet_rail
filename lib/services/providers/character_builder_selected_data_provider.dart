@@ -1,10 +1,11 @@
-import 'package:comet_rail/services/models/character_builder_selected_data.dart';
-import 'package:comet_rail/services/models/light_cone.dart';
+import 'package:comet_rail/services/models/selected_data.dart';
+import 'package:comet_rail/services/models/json_models/light_cone.dart';
+import 'package:comet_rail/services/models/json_models/promotions.dart';
 import 'package:comet_rail/services/models/selected_planar_data.dart';
 import 'package:comet_rail/services/models/selected_relic_data.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../models/characters.dart';
+import '../models/json_models/characters.dart';
 
 class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
   CharacterBuilderSelectedDataNotifier()
@@ -12,15 +13,19 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
           SelectedData(
             character: null,
             lightCone: null,
+            characterPromotionData: null,
+            lightConePromotionData: null,
             selectedRelic: SelectedRelicDataWrapper(),
             selectedPlanar: SelectedPlanerDataWrapper(),
           ),
         );
 
-  void setCharacter(Character character) {
+  void setCharacter(Character character, Promotion characterPromotionData) {
     state = SelectedData(
         character: character,
+        characterPromotionData: characterPromotionData,
         lightCone: state.lightCone,
+        lightConePromotionData: state.lightConePromotionData,
         selectedRelic: state.selectedRelic,
         selectedPlanar: state.selectedPlanar);
   }
@@ -28,15 +33,19 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
   void clearCharacter() {
     state = SelectedData(
         character: null,
+        characterPromotionData: null,
         lightCone: state.lightCone,
+        lightConePromotionData: state.lightConePromotionData,
         selectedRelic: state.selectedRelic,
         selectedPlanar: state.selectedPlanar);
   }
 
-  void setLightCone(LightCone lightCone) {
+  void setLightCone(LightCone lightCone, Promotion lightConePromotionData) {
     state = SelectedData(
         character: state.character,
+        characterPromotionData: state.characterPromotionData,
         lightCone: lightCone,
+        lightConePromotionData: lightConePromotionData,
         selectedRelic: state.selectedRelic,
         selectedPlanar: state.selectedPlanar);
   }
@@ -44,7 +53,9 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
   void clearLightCone() {
     state = SelectedData(
         character: state.character,
+        characterPromotionData: state.characterPromotionData,
         lightCone: null,
+        lightConePromotionData: null,
         selectedRelic: state.selectedRelic,
         selectedPlanar: state.selectedPlanar);
   }
@@ -67,7 +78,9 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
 
     state = SelectedData(
         character: state.character,
+        characterPromotionData: state.characterPromotionData,
         lightCone: state.lightCone,
+        lightConePromotionData: state.lightConePromotionData,
         selectedRelic: data,
         selectedPlanar: state.selectedPlanar);
   }
@@ -75,7 +88,9 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
   void clearRelics() {
     state = SelectedData(
         character: state.character,
+        characterPromotionData: state.characterPromotionData,
         lightCone: state.lightCone,
+        lightConePromotionData: state.lightConePromotionData,
         selectedRelic: SelectedRelicDataWrapper(),
         selectedPlanar: state.selectedPlanar);
   }
@@ -94,7 +109,9 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
 
     state = SelectedData(
         character: state.character,
+        characterPromotionData: state.characterPromotionData,
         lightCone: state.lightCone,
+        lightConePromotionData: state.lightConePromotionData,
         selectedRelic: state.selectedRelic,
         selectedPlanar: data);
   }
@@ -102,7 +119,9 @@ class CharacterBuilderSelectedDataNotifier extends StateNotifier<SelectedData> {
   void clearPlanars() {
     state = SelectedData(
       character: state.character,
+      characterPromotionData: state.characterPromotionData,
       lightCone: state.lightCone,
+      lightConePromotionData: state.lightConePromotionData,
       selectedRelic: state.selectedRelic,
       selectedPlanar: SelectedPlanerDataWrapper(),
     );

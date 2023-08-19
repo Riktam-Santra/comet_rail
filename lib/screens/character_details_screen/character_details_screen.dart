@@ -6,7 +6,7 @@ import 'package:comet_rail/screens/widgets/http_call_error_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../services/models/characters.dart';
+import '../../services/models/json_models/characters.dart';
 import '../../services/providers/character_data_providers/characters_desc_provider.dart';
 import '../../utils.dart';
 import '../widgets/element_icon.dart';

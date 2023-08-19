@@ -1,8 +1,5 @@
 import 'dart:developer';
 
-import 'package:comet_rail/services/models/character_builder_selected_data.dart';
-import 'package:comet_rail/services/models/character_calculated_data_wrapper.dart';
-
 abstract class Utils {
   static String convertPathName(String path) {
     switch (path) {

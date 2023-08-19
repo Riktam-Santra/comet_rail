@@ -4,14 +4,14 @@ import 'package:comet_rail/screens/home_screen/widgets/character_card.dart';
 import 'package:comet_rail/screens/home_screen/widgets/items_list/widgets/item_tile.dart';
 import 'package:comet_rail/screens/home_screen/widgets/light_cone_card.dart';
 import 'package:comet_rail/screens/home_screen/widgets/relic_card.dart';
-import 'package:comet_rail/services/models/characters.dart';
+import 'package:comet_rail/services/models/json_models/characters.dart';
 import 'package:comet_rail/services/providers/search_helper_providers/search_value_state_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../models/light_cone.dart';
-import '../../models/relic_data.dart';
-import '../../models/res_item.dart';
+import '../../models/json_models/light_cone.dart';
+import '../../models/json_models/relic_data.dart';
+import '../../models/json_models/res_item.dart';
 import '../character_data_providers/characters_data_provider.dart';
 import '../light_cone_data_providers/light_cone_data_provider.dart';
 import '../item_data_providers/item_data_provider.dart';
